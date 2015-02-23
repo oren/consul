@@ -1,4 +1,5 @@
 docker build -t oreng/test-consul .
 docker run -p 3000:3000 -it oreng/test-consul
+curl localhost:3000
 docker commit 8f718fb72c2d hello:v1
-d run -d hello:v1
+d run -d -p 3000:3000 hello:v1
