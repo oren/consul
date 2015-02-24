@@ -18,7 +18,7 @@ nginx
 consul
 ------
 
-    docker run -d -p 8400:8400 -p 8500:8500 -p 8600:53/udp -h --name consul node1 progrium/consul -server -bootstrap -ui-dir /ui
+    docker run -d -p 8400:8400 -p 8500:8500 -p 8600:53/udp -h node1 --name consul progrium/consul -server -bootstrap -ui-dir /ui
     http://localhost:8500/ui
 
 registrator
