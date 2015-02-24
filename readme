@@ -24,7 +24,7 @@ consul
 registrator
 -----------
 
-    docker run -d -v /var/run/docker.sock:/tmp/docker.sock -h localhost --name registrator gliderlabs/registrator consul://localhost:8500
+    docker run -d -v /var/run/docker.sock:/tmp/docker.sock -h 192.168.1.121 --name registrator gliderlabs/registrator consul://192.168.1.121:8500
 
 misc
 ----
