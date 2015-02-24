@@ -1,6 +1,16 @@
-docker build -t oreng/test-consul .
-docker run -p 3000:3000 -it oreng/test-consul
-curl localhost:3000
-docker commit 8f718fb72c2d hello:v1
-docker run -d -p 3000:3000 hello:v1
-for i in $(seq 1 20); do docker run -d \:3000 hello:v1; done
+app
+---
+
+    docker build -t oreng/test-consul -f app-dockerfile .
+    docker run -p 3000:3000 -it oreng/test-consul
+    curl localhost:3000
+    docker commit 8f718fb72c2d hello:v1
+    docker run -d -p 3000:3000 hello:v1
+    ./run
+
+nginx
+-----
+
+    for i in $(docker ps -q); do docker inspect $i | grep "IPAddress" | cut -d" " -f 10 | sed 's/[^0-9\.]*//g'; done
+    docker build -t oreng/nginx -f nginx-dockerfile  .
+    docker run -p 80:80 --name nginx -d oreng/nginx
